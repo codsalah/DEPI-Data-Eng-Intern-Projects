@@ -1,0 +1,12 @@
+﻿<?xml version="1.0"?>
+<DTS:ConnectionManager xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:ObjectName="ASUS-TUF_SQLEXPRESS.CompanyDB"
+  DTS:DTSID="{AB1423AC-FD56-4DBA-BE6B-4D2656364F21}"
+  DTS:CreationName="OLEDB">
+  <DTS:ObjectData>
+    <DTS:ConnectionManager
+      DTS:ConnectRetryCount="1"
+      DTS:ConnectRetryInterval="5"
+      DTS:ConnectionString="Data Source=ASUS-TUF\SQLEXPRESS;Initial Catalog=CompanyDB;Provider=SQLNCLI11.1;Integrated Security=SSPI;Application Name=SSIS-SQL DB to Excel-{AB1423AC-FD56-4DBA-BE6B-4D2656364F21}ASUS-TUF\SQLEXPRESS.CompanyDB;Auto Translate=False;" />
+  </DTS:ObjectData>
+</DTS:ConnectionManager>

@@ -1,0 +1,1441 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="7/28/2024 8:33:17 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="ASUS-TUF"
+  DTS:CreatorName="ASUS-TUF\salah"
+  DTS:DTSID="{E763665B-EB46-447F-85AD-38C74F135737}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="16.0.5467.0"
+  DTS:LocaleID="1033"
+  DTS:ObjectName="Package"
+  DTS:PackageType="5"
+  DTS:VersionBuild="1"
+  DTS:VersionGUID="{314838BF-B8D9-4DC4-BCD4-79820EE219C0}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[ASUS-TUF\SQLEPRESS]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{451CC20E-7622-4232-9080-9F4BD4DE956B}"
+      DTS:ObjectName="ASUS-TUF\SQLEPRESS">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=ASUS-TUF\SQLEPRESS;Provider=SQLNCLI11.1;Integrated Security=SSPI;Application Name=SSIS-Package-{451CC20E-7622-4232-9080-9F4BD4DE956B}ASUS-TUF\SQLEPRESS;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[ASUS-TUF\SQLEXPRESS.CompanyDB]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{EFE87B6A-DC05-41B3-B336-FFBAB36EEF5E}"
+      DTS:ObjectName="ASUS-TUF\SQLEXPRESS.CompanyDB">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=ASUS-TUF\SQLEXPRESS;Initial Catalog=CompanyDB;Provider=SQLNCLI11.1;Integrated Security=SSPI;Application Name=SSIS-Package-{EFE87B6A-DC05-41B3-B336-FFBAB36EEF5E}ASUS-TUF\SQLEXPRESS.CompanyDB;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[ASUS-TUF\SQLEXPRESS.superstore]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{23D316CA-6DF2-48B6-A274-BC9D8F4F2C21}"
+      DTS:ObjectName="ASUS-TUF\SQLEXPRESS.superstore">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=ASUS-TUF\SQLEXPRESS;Initial Catalog=superstore;Provider=SQLNCLI11.1;Integrated Security=SSPI;Application Name=SSIS-Package-{23D316CA-6DF2-48B6-A274-BC9D8F4F2C21}ASUS-TUF\SQLEXPRESS.superstore;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Excel Connection Manager]"
+      DTS:CreationName="EXCEL"
+      DTS:DTSID="{4A21BF68-94F1-4B00-9D05-D40ED52ECC45}"
+      DTS:ObjectName="Excel Connection Manager">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="0"
+          DTS:ConnectRetryInterval="0"
+          DTS:ConnectionString="Provider=Microsoft.Jet.OLEDB.4.0;Data Source=C:\Users\salah\Downloads\Sample - Superstore 2019.xls;Extended Properties=&quot;Excel 8.0;HDR=YES&quot;;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{1BBBD835-7C1C-4E7F-8746-38E899B8B3F3}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="End">
+      <DTS:VariableValue
+        DTS:DataType="3">3</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{360B6509-FD48-486E-B156-2AD0DF51B866}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="start">
+      <DTS:VariableValue
+        DTS:DataType="3">1</DTS:VariableValue>
+    </DTS:Variable>
+  </DTS:Variables>
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Execute SQL Task"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{F92285F3-89F3-40F8-A875-B403928B9A3F}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Execute SQL Task"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{23D316CA-6DF2-48B6-A274-BC9D8F4F2C21}"
+          SQLTask:SqlStatementSource="TRUNCATE TABLE Orders;&#xA;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\For Loop Container"
+      DTS:AssignExpression="@start = @start+1"
+      DTS:CreationName="STOCK:FORLOOP"
+      DTS:Description="For Loop Container"
+      DTS:DTSID="{C2B3E667-D90C-4F22-A466-1F2B2A1E7249}"
+      DTS:EvalExpression="@start &lt;= @End"
+      DTS:ExecutableType="STOCK:FORLOOP"
+      DTS:InitExpression="@start = 1"
+      DTS:LocaleID="-1"
+      DTS:MaxConcurrent="1"
+      DTS:ObjectName="For Loop Container">
+      <DTS:Variables />
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package\For Loop Container\Data Flow Task"
+          DTS:CreationName="Microsoft.Pipeline"
+          DTS:Description="Data Flow Task"
+          DTS:DTSID="{255AFA0C-D71B-447F-A84A-814BF40630F0}"
+          DTS:ExecutableType="Microsoft.Pipeline"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Data Flow Task"
+          DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <pipeline
+              version="1">
+              <components>
+                <component
+                  refId="Package\For Loop Container\Data Flow Task\Data Conversion"
+                  componentClassID="Microsoft.DataConvert"
+                  contactInfo="Data Conversion;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+                  description="Data Conversion"
+                  name="Data Conversion"
+                  usesDispositions="true">
+                  <inputs>
+                    <input
+                      refId="Package\For Loop Container\Data Flow Task\Data Conversion.Inputs[Data Conversion Input]"
+                      name="Data Conversion Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\For Loop Container\Data Flow Task\Data Conversion.Inputs[Data Conversion Input].Columns[Order ID]"
+                          cachedDataType="wstr"
+                          cachedLength="255"
+                          cachedName="Order ID"
+                          lineageId="Package\For Loop Container\Data Flow Task\Excel Source.Outputs[Excel Source Output].Columns[Order ID]" />
+                        <inputColumn
+                          refId="Package\For Loop Container\Data Flow Task\Data Conversion.Inputs[Data Conversion Input].Columns[Product ID]"
+                          cachedDataType="wstr"
+                          cachedLength="255"
+                          cachedName="Product ID"
+                          lineageId="Package\For Loop Container\Data Flow Task\Excel Source.Outputs[Excel Source Output].Columns[Product ID]" />
+                        <inputColumn
+                          refId="Package\For Loop Container\Data Flow Task\Data Conversion.Inputs[Data Conversion Input].Columns[Profit]"
+                          cachedDataType="r8"
+                          cachedName="Profit"
+                          lineageId="Package\For Loop Container\Data Flow Task\Excel Source.Outputs[Excel Source Output].Columns[Profit]" />
+                        <inputColumn
+                          refId="Package\For Loop Container\Data Flow Task\Data Conversion.Inputs[Data Conversion Input].Columns[Sales]"
+                          cachedDataType="r8"
+                          cachedName="Sales"
+                          lineageId="Package\For Loop Container\Data Flow Task\Excel Source.Outputs[Excel Source Output].Columns[Sales]" />
+                        <inputColumn
+                          refId="Package\For Loop Container\Data Flow Task\Data Conversion.Inputs[Data Conversion Input].Columns[Customer ID]"
+                          cachedDataType="wstr"
+                          cachedLength="255"
+                          cachedName="Customer ID"
+                          lineageId="Package\For Loop Container\Data Flow Task\Excel Source.Outputs[Excel Source Output].Columns[Customer ID]" />
+                      </inputColumns>
+                      <externalMetadataColumns />
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\For Loop Container\Data Flow Task\Data Conversion.Outputs[Data Conversion Output]"
+                      exclusionGroup="1"
+                      name="Data Conversion Output"
+                      synchronousInputId="Package\For Loop Container\Data Flow Task\Data Conversion.Inputs[Data Conversion Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\For Loop Container\Data Flow Task\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Order ID]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          length="255"
+                          lineageId="Package\For Loop Container\Data Flow Task\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Order ID]"
+                          name="Copy of Order ID"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Specifies the input column used as the source of data for the conversion."
+                              name="SourceInputColumnLineageID">#{Package\For Loop Container\Data Flow Task\Excel Source.Outputs[Excel Source Output].Columns[Order ID]}</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\For Loop Container\Data Flow Task\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Product ID]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          length="255"
+                          lineageId="Package\For Loop Container\Data Flow Task\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Product ID]"
+                          name="Copy of Product ID"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Specifies the input column used as the source of data for the conversion."
+                              name="SourceInputColumnLineageID">#{Package\For Loop Container\Data Flow Task\Excel Source.Outputs[Excel Source Output].Columns[Product ID]}</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\For Loop Container\Data Flow Task\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Profit]"
+                          dataType="r8"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          lineageId="Package\For Loop Container\Data Flow Task\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Profit]"
+                          name="Copy of Profit"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Specifies the input column used as the source of data for the conversion."
+                              name="SourceInputColumnLineageID">#{Package\For Loop Container\Data Flow Task\Excel Source.Outputs[Excel Source Output].Columns[Profit]}</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\For Loop Container\Data Flow Task\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Sales]"
+                          dataType="r8"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          lineageId="Package\For Loop Container\Data Flow Task\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Sales]"
+                          name="Copy of Sales"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Specifies the input column used as the source of data for the conversion."
+                              name="SourceInputColumnLineageID">#{Package\For Loop Container\Data Flow Task\Excel Source.Outputs[Excel Source Output].Columns[Sales]}</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\For Loop Container\Data Flow Task\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Customer ID]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          length="255"
+                          lineageId="Package\For Loop Container\Data Flow Task\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Customer ID]"
+                          name="Copy of Customer ID"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Specifies the input column used as the source of data for the conversion."
+                              name="SourceInputColumnLineageID">#{Package\For Loop Container\Data Flow Task\Excel Source.Outputs[Excel Source Output].Columns[Customer ID]}</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                          </properties>
+                        </outputColumn>
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                    <output
+                      refId="Package\For Loop Container\Data Flow Task\Data Conversion.Outputs[Data Conversion Error Output]"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="Data Conversion Error Output"
+                      synchronousInputId="Package\For Loop Container\Data Flow Task\Data Conversion.Inputs[Data Conversion Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\For Loop Container\Data Flow Task\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\For Loop Container\Data Flow Task\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\For Loop Container\Data Flow Task\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\For Loop Container\Data Flow Task\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\For Loop Container\Data Flow Task\Excel Source"
+                  componentClassID="Microsoft.ExcelSource"
+                  contactInfo="Excel Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+                  description="Excel Source"
+                  name="Excel Source"
+                  usesDispositions="true"
+                  version="1">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset">Orders$</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                    <property
+                      dataType="System.String"
+                      description="The variable that contains the SQL command to be executed."
+                      name="SqlCommandVariable"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">0</property>
+                    <property
+                      dataType="System.String"
+                      description="The mapping from parameters in the SQL command to variables."
+                      name="ParameterMapping"></property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\For Loop Container\Data Flow Task\Excel Source.Connections[OleDbConnection]"
+                      connectionManagerID="Package.ConnectionManagers[Excel Connection Manager]"
+                      connectionManagerRefId="Package.ConnectionManagers[Excel Connection Manager]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <outputs>
+                    <output
+                      refId="Package\For Loop Container\Data Flow Task\Excel Source.Outputs[Excel Source Output]"
+                      name="Excel Source Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\For Loop Container\Data Flow Task\Excel Source.Outputs[Excel Source Output].Columns[Row ID]"
+                          dataType="r8"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\For Loop Container\Data Flow Task\Excel Source.Outputs[Excel Source Output].ExternalColumns[Row ID]"
+                          lineageId="Package\For Loop Container\Data Flow Task\Excel Source.Outputs[Excel Source Output].Columns[Row ID]"
+                          name="Row ID"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\For Loop Container\Data Flow Task\Excel Source.Outputs[Excel Source Output].Columns[Order ID]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\For Loop Container\Data Flow Task\Excel Source.Outputs[Excel Source Output].ExternalColumns[Order ID]"
+                          length="255"
+                          lineageId="Package\For Loop Container\Data Flow Task\Excel Source.Outputs[Excel Source Output].Columns[Order ID]"
+                          name="Order ID"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\For Loop Container\Data Flow Task\Excel Source.Outputs[Excel Source Output].Columns[Order Date]"
+                          dataType="date"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\For Loop Container\Data Flow Task\Excel Source.Outputs[Excel Source Output].ExternalColumns[Order Date]"
+                          lineageId="Package\For Loop Container\Data Flow Task\Excel Source.Outputs[Excel Source Output].Columns[Order Date]"
+                          name="Order Date"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\For Loop Container\Data Flow Task\Excel Source.Outputs[Excel Source Output].Columns[Ship Date]"
+                          dataType="date"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\For Loop Container\Data Flow Task\Excel Source.Outputs[Excel Source Output].ExternalColumns[Ship Date]"
+                          lineageId="Package\For Loop Container\Data Flow Task\Excel Source.Outputs[Excel Source Output].Columns[Ship Date]"
+                          name="Ship Date"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\For Loop Container\Data Flow Task\Excel Source.Outputs[Excel Source Output].Columns[Ship Mode]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\For Loop Container\Data Flow Task\Excel Source.Outputs[Excel Source Output].ExternalColumns[Ship Mode]"
+                          length="255"
+                          lineageId="Package\For Loop Container\Data Flow Task\Excel Source.Outputs[Excel Source Output].Columns[Ship Mode]"
+                          name="Ship Mode"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\For Loop Container\Data Flow Task\Excel Source.Outputs[Excel Source Output].Columns[Customer ID]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\For Loop Container\Data Flow Task\Excel Source.Outputs[Excel Source Output].ExternalColumns[Customer ID]"
+                          length="255"
+                          lineageId="Package\For Loop Container\Data Flow Task\Excel Source.Outputs[Excel Source Output].Columns[Customer ID]"
+                          name="Customer ID"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\For Loop Container\Data Flow Task\Excel Source.Outputs[Excel Source Output].Columns[Customer Name]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\For Loop Container\Data Flow Task\Excel Source.Outputs[Excel Source Output].ExternalColumns[Customer Name]"
+                          length="255"
+                          lineageId="Package\For Loop Container\Data Flow Task\Excel Source.Outputs[Excel Source Output].Columns[Customer Name]"
+                          name="Customer Name"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\For Loop Container\Data Flow Task\Excel Source.Outputs[Excel Source Output].Columns[Segment]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\For Loop Container\Data Flow Task\Excel Source.Outputs[Excel Source Output].ExternalColumns[Segment]"
+                          length="255"
+                          lineageId="Package\For Loop Container\Data Flow Task\Excel Source.Outputs[Excel Source Output].Columns[Segment]"
+                          name="Segment"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\For Loop Container\Data Flow Task\Excel Source.Outputs[Excel Source Output].Columns[Country/Region]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\For Loop Container\Data Flow Task\Excel Source.Outputs[Excel Source Output].ExternalColumns[Country/Region]"
+                          length="255"
+                          lineageId="Package\For Loop Container\Data Flow Task\Excel Source.Outputs[Excel Source Output].Columns[Country/Region]"
+                          name="Country/Region"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\For Loop Container\Data Flow Task\Excel Source.Outputs[Excel Source Output].Columns[City]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\For Loop Container\Data Flow Task\Excel Source.Outputs[Excel Source Output].ExternalColumns[City]"
+                          length="255"
+                          lineageId="Package\For Loop Container\Data Flow Task\Excel Source.Outputs[Excel Source Output].Columns[City]"
+                          name="City"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\For Loop Container\Data Flow Task\Excel Source.Outputs[Excel Source Output].Columns[State]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\For Loop Container\Data Flow Task\Excel Source.Outputs[Excel Source Output].ExternalColumns[State]"
+                          length="255"
+                          lineageId="Package\For Loop Container\Data Flow Task\Excel Source.Outputs[Excel Source Output].Columns[State]"
+                          name="State"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\For Loop Container\Data Flow Task\Excel Source.Outputs[Excel Source Output].Columns[Postal Code]"
+                          dataType="r8"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\For Loop Container\Data Flow Task\Excel Source.Outputs[Excel Source Output].ExternalColumns[Postal Code]"
+                          lineageId="Package\For Loop Container\Data Flow Task\Excel Source.Outputs[Excel Source Output].Columns[Postal Code]"
+                          name="Postal Code"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\For Loop Container\Data Flow Task\Excel Source.Outputs[Excel Source Output].Columns[Region]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\For Loop Container\Data Flow Task\Excel Source.Outputs[Excel Source Output].ExternalColumns[Region]"
+                          length="255"
+                          lineageId="Package\For Loop Container\Data Flow Task\Excel Source.Outputs[Excel Source Output].Columns[Region]"
+                          name="Region"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\For Loop Container\Data Flow Task\Excel Source.Outputs[Excel Source Output].Columns[Product ID]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\For Loop Container\Data Flow Task\Excel Source.Outputs[Excel Source Output].ExternalColumns[Product ID]"
+                          length="255"
+                          lineageId="Package\For Loop Container\Data Flow Task\Excel Source.Outputs[Excel Source Output].Columns[Product ID]"
+                          name="Product ID"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\For Loop Container\Data Flow Task\Excel Source.Outputs[Excel Source Output].Columns[Category]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\For Loop Container\Data Flow Task\Excel Source.Outputs[Excel Source Output].ExternalColumns[Category]"
+                          length="255"
+                          lineageId="Package\For Loop Container\Data Flow Task\Excel Source.Outputs[Excel Source Output].Columns[Category]"
+                          name="Category"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\For Loop Container\Data Flow Task\Excel Source.Outputs[Excel Source Output].Columns[Sub-Category]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\For Loop Container\Data Flow Task\Excel Source.Outputs[Excel Source Output].ExternalColumns[Sub-Category]"
+                          length="255"
+                          lineageId="Package\For Loop Container\Data Flow Task\Excel Source.Outputs[Excel Source Output].Columns[Sub-Category]"
+                          name="Sub-Category"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\For Loop Container\Data Flow Task\Excel Source.Outputs[Excel Source Output].Columns[Product Name]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\For Loop Container\Data Flow Task\Excel Source.Outputs[Excel Source Output].ExternalColumns[Product Name]"
+                          length="255"
+                          lineageId="Package\For Loop Container\Data Flow Task\Excel Source.Outputs[Excel Source Output].Columns[Product Name]"
+                          name="Product Name"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\For Loop Container\Data Flow Task\Excel Source.Outputs[Excel Source Output].Columns[Sales]"
+                          dataType="r8"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\For Loop Container\Data Flow Task\Excel Source.Outputs[Excel Source Output].ExternalColumns[Sales]"
+                          lineageId="Package\For Loop Container\Data Flow Task\Excel Source.Outputs[Excel Source Output].Columns[Sales]"
+                          name="Sales"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\For Loop Container\Data Flow Task\Excel Source.Outputs[Excel Source Output].Columns[Quantity]"
+                          dataType="r8"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\For Loop Container\Data Flow Task\Excel Source.Outputs[Excel Source Output].ExternalColumns[Quantity]"
+                          lineageId="Package\For Loop Container\Data Flow Task\Excel Source.Outputs[Excel Source Output].Columns[Quantity]"
+                          name="Quantity"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\For Loop Container\Data Flow Task\Excel Source.Outputs[Excel Source Output].Columns[Discount]"
+                          dataType="r8"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\For Loop Container\Data Flow Task\Excel Source.Outputs[Excel Source Output].ExternalColumns[Discount]"
+                          lineageId="Package\For Loop Container\Data Flow Task\Excel Source.Outputs[Excel Source Output].Columns[Discount]"
+                          name="Discount"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\For Loop Container\Data Flow Task\Excel Source.Outputs[Excel Source Output].Columns[Profit]"
+                          dataType="r8"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\For Loop Container\Data Flow Task\Excel Source.Outputs[Excel Source Output].ExternalColumns[Profit]"
+                          lineageId="Package\For Loop Container\Data Flow Task\Excel Source.Outputs[Excel Source Output].Columns[Profit]"
+                          name="Profit"
+                          truncationRowDisposition="FailComponent" />
+                      </outputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\For Loop Container\Data Flow Task\Excel Source.Outputs[Excel Source Output].ExternalColumns[Row ID]"
+                          dataType="r8"
+                          name="Row ID" />
+                        <externalMetadataColumn
+                          refId="Package\For Loop Container\Data Flow Task\Excel Source.Outputs[Excel Source Output].ExternalColumns[Order ID]"
+                          dataType="wstr"
+                          length="255"
+                          name="Order ID" />
+                        <externalMetadataColumn
+                          refId="Package\For Loop Container\Data Flow Task\Excel Source.Outputs[Excel Source Output].ExternalColumns[Order Date]"
+                          dataType="date"
+                          name="Order Date" />
+                        <externalMetadataColumn
+                          refId="Package\For Loop Container\Data Flow Task\Excel Source.Outputs[Excel Source Output].ExternalColumns[Ship Date]"
+                          dataType="date"
+                          name="Ship Date" />
+                        <externalMetadataColumn
+                          refId="Package\For Loop Container\Data Flow Task\Excel Source.Outputs[Excel Source Output].ExternalColumns[Ship Mode]"
+                          dataType="wstr"
+                          length="255"
+                          name="Ship Mode" />
+                        <externalMetadataColumn
+                          refId="Package\For Loop Container\Data Flow Task\Excel Source.Outputs[Excel Source Output].ExternalColumns[Customer ID]"
+                          dataType="wstr"
+                          length="255"
+                          name="Customer ID" />
+                        <externalMetadataColumn
+                          refId="Package\For Loop Container\Data Flow Task\Excel Source.Outputs[Excel Source Output].ExternalColumns[Customer Name]"
+                          dataType="wstr"
+                          length="255"
+                          name="Customer Name" />
+                        <externalMetadataColumn
+                          refId="Package\For Loop Container\Data Flow Task\Excel Source.Outputs[Excel Source Output].ExternalColumns[Segment]"
+                          dataType="wstr"
+                          length="255"
+                          name="Segment" />
+                        <externalMetadataColumn
+                          refId="Package\For Loop Container\Data Flow Task\Excel Source.Outputs[Excel Source Output].ExternalColumns[Country/Region]"
+                          dataType="wstr"
+                          length="255"
+                          name="Country/Region" />
+                        <externalMetadataColumn
+                          refId="Package\For Loop Container\Data Flow Task\Excel Source.Outputs[Excel Source Output].ExternalColumns[City]"
+                          dataType="wstr"
+                          length="255"
+                          name="City" />
+                        <externalMetadataColumn
+                          refId="Package\For Loop Container\Data Flow Task\Excel Source.Outputs[Excel Source Output].ExternalColumns[State]"
+                          dataType="wstr"
+                          length="255"
+                          name="State" />
+                        <externalMetadataColumn
+                          refId="Package\For Loop Container\Data Flow Task\Excel Source.Outputs[Excel Source Output].ExternalColumns[Postal Code]"
+                          dataType="r8"
+                          name="Postal Code" />
+                        <externalMetadataColumn
+                          refId="Package\For Loop Container\Data Flow Task\Excel Source.Outputs[Excel Source Output].ExternalColumns[Region]"
+                          dataType="wstr"
+                          length="255"
+                          name="Region" />
+                        <externalMetadataColumn
+                          refId="Package\For Loop Container\Data Flow Task\Excel Source.Outputs[Excel Source Output].ExternalColumns[Product ID]"
+                          dataType="wstr"
+                          length="255"
+                          name="Product ID" />
+                        <externalMetadataColumn
+                          refId="Package\For Loop Container\Data Flow Task\Excel Source.Outputs[Excel Source Output].ExternalColumns[Category]"
+                          dataType="wstr"
+                          length="255"
+                          name="Category" />
+                        <externalMetadataColumn
+                          refId="Package\For Loop Container\Data Flow Task\Excel Source.Outputs[Excel Source Output].ExternalColumns[Sub-Category]"
+                          dataType="wstr"
+                          length="255"
+                          name="Sub-Category" />
+                        <externalMetadataColumn
+                          refId="Package\For Loop Container\Data Flow Task\Excel Source.Outputs[Excel Source Output].ExternalColumns[Product Name]"
+                          dataType="wstr"
+                          length="255"
+                          name="Product Name" />
+                        <externalMetadataColumn
+                          refId="Package\For Loop Container\Data Flow Task\Excel Source.Outputs[Excel Source Output].ExternalColumns[Sales]"
+                          dataType="r8"
+                          name="Sales" />
+                        <externalMetadataColumn
+                          refId="Package\For Loop Container\Data Flow Task\Excel Source.Outputs[Excel Source Output].ExternalColumns[Quantity]"
+                          dataType="r8"
+                          name="Quantity" />
+                        <externalMetadataColumn
+                          refId="Package\For Loop Container\Data Flow Task\Excel Source.Outputs[Excel Source Output].ExternalColumns[Discount]"
+                          dataType="r8"
+                          name="Discount" />
+                        <externalMetadataColumn
+                          refId="Package\For Loop Container\Data Flow Task\Excel Source.Outputs[Excel Source Output].ExternalColumns[Profit]"
+                          dataType="r8"
+                          name="Profit" />
+                      </externalMetadataColumns>
+                    </output>
+                    <output
+                      refId="Package\For Loop Container\Data Flow Task\Excel Source.Outputs[Excel Source Error Output]"
+                      isErrorOut="true"
+                      name="Excel Source Error Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\For Loop Container\Data Flow Task\Excel Source.Outputs[Excel Source Error Output].Columns[Row ID]"
+                          dataType="r8"
+                          lineageId="Package\For Loop Container\Data Flow Task\Excel Source.Outputs[Excel Source Error Output].Columns[Row ID]"
+                          name="Row ID" />
+                        <outputColumn
+                          refId="Package\For Loop Container\Data Flow Task\Excel Source.Outputs[Excel Source Error Output].Columns[Order ID]"
+                          dataType="wstr"
+                          length="255"
+                          lineageId="Package\For Loop Container\Data Flow Task\Excel Source.Outputs[Excel Source Error Output].Columns[Order ID]"
+                          name="Order ID" />
+                        <outputColumn
+                          refId="Package\For Loop Container\Data Flow Task\Excel Source.Outputs[Excel Source Error Output].Columns[Order Date]"
+                          dataType="date"
+                          lineageId="Package\For Loop Container\Data Flow Task\Excel Source.Outputs[Excel Source Error Output].Columns[Order Date]"
+                          name="Order Date" />
+                        <outputColumn
+                          refId="Package\For Loop Container\Data Flow Task\Excel Source.Outputs[Excel Source Error Output].Columns[Ship Date]"
+                          dataType="date"
+                          lineageId="Package\For Loop Container\Data Flow Task\Excel Source.Outputs[Excel Source Error Output].Columns[Ship Date]"
+                          name="Ship Date" />
+                        <outputColumn
+                          refId="Package\For Loop Container\Data Flow Task\Excel Source.Outputs[Excel Source Error Output].Columns[Ship Mode]"
+                          dataType="wstr"
+                          length="255"
+                          lineageId="Package\For Loop Container\Data Flow Task\Excel Source.Outputs[Excel Source Error Output].Columns[Ship Mode]"
+                          name="Ship Mode" />
+                        <outputColumn
+                          refId="Package\For Loop Container\Data Flow Task\Excel Source.Outputs[Excel Source Error Output].Columns[Customer ID]"
+                          dataType="wstr"
+                          length="255"
+                          lineageId="Package\For Loop Container\Data Flow Task\Excel Source.Outputs[Excel Source Error Output].Columns[Customer ID]"
+                          name="Customer ID" />
+                        <outputColumn
+                          refId="Package\For Loop Container\Data Flow Task\Excel Source.Outputs[Excel Source Error Output].Columns[Customer Name]"
+                          dataType="wstr"
+                          length="255"
+                          lineageId="Package\For Loop Container\Data Flow Task\Excel Source.Outputs[Excel Source Error Output].Columns[Customer Name]"
+                          name="Customer Name" />
+                        <outputColumn
+                          refId="Package\For Loop Container\Data Flow Task\Excel Source.Outputs[Excel Source Error Output].Columns[Segment]"
+                          dataType="wstr"
+                          length="255"
+                          lineageId="Package\For Loop Container\Data Flow Task\Excel Source.Outputs[Excel Source Error Output].Columns[Segment]"
+                          name="Segment" />
+                        <outputColumn
+                          refId="Package\For Loop Container\Data Flow Task\Excel Source.Outputs[Excel Source Error Output].Columns[Country/Region]"
+                          dataType="wstr"
+                          length="255"
+                          lineageId="Package\For Loop Container\Data Flow Task\Excel Source.Outputs[Excel Source Error Output].Columns[Country/Region]"
+                          name="Country/Region" />
+                        <outputColumn
+                          refId="Package\For Loop Container\Data Flow Task\Excel Source.Outputs[Excel Source Error Output].Columns[City]"
+                          dataType="wstr"
+                          length="255"
+                          lineageId="Package\For Loop Container\Data Flow Task\Excel Source.Outputs[Excel Source Error Output].Columns[City]"
+                          name="City" />
+                        <outputColumn
+                          refId="Package\For Loop Container\Data Flow Task\Excel Source.Outputs[Excel Source Error Output].Columns[State]"
+                          dataType="wstr"
+                          length="255"
+                          lineageId="Package\For Loop Container\Data Flow Task\Excel Source.Outputs[Excel Source Error Output].Columns[State]"
+                          name="State" />
+                        <outputColumn
+                          refId="Package\For Loop Container\Data Flow Task\Excel Source.Outputs[Excel Source Error Output].Columns[Postal Code]"
+                          dataType="r8"
+                          lineageId="Package\For Loop Container\Data Flow Task\Excel Source.Outputs[Excel Source Error Output].Columns[Postal Code]"
+                          name="Postal Code" />
+                        <outputColumn
+                          refId="Package\For Loop Container\Data Flow Task\Excel Source.Outputs[Excel Source Error Output].Columns[Region]"
+                          dataType="wstr"
+                          length="255"
+                          lineageId="Package\For Loop Container\Data Flow Task\Excel Source.Outputs[Excel Source Error Output].Columns[Region]"
+                          name="Region" />
+                        <outputColumn
+                          refId="Package\For Loop Container\Data Flow Task\Excel Source.Outputs[Excel Source Error Output].Columns[Product ID]"
+                          dataType="wstr"
+                          length="255"
+                          lineageId="Package\For Loop Container\Data Flow Task\Excel Source.Outputs[Excel Source Error Output].Columns[Product ID]"
+                          name="Product ID" />
+                        <outputColumn
+                          refId="Package\For Loop Container\Data Flow Task\Excel Source.Outputs[Excel Source Error Output].Columns[Category]"
+                          dataType="wstr"
+                          length="255"
+                          lineageId="Package\For Loop Container\Data Flow Task\Excel Source.Outputs[Excel Source Error Output].Columns[Category]"
+                          name="Category" />
+                        <outputColumn
+                          refId="Package\For Loop Container\Data Flow Task\Excel Source.Outputs[Excel Source Error Output].Columns[Sub-Category]"
+                          dataType="wstr"
+                          length="255"
+                          lineageId="Package\For Loop Container\Data Flow Task\Excel Source.Outputs[Excel Source Error Output].Columns[Sub-Category]"
+                          name="Sub-Category" />
+                        <outputColumn
+                          refId="Package\For Loop Container\Data Flow Task\Excel Source.Outputs[Excel Source Error Output].Columns[Product Name]"
+                          dataType="wstr"
+                          length="255"
+                          lineageId="Package\For Loop Container\Data Flow Task\Excel Source.Outputs[Excel Source Error Output].Columns[Product Name]"
+                          name="Product Name" />
+                        <outputColumn
+                          refId="Package\For Loop Container\Data Flow Task\Excel Source.Outputs[Excel Source Error Output].Columns[Sales]"
+                          dataType="r8"
+                          lineageId="Package\For Loop Container\Data Flow Task\Excel Source.Outputs[Excel Source Error Output].Columns[Sales]"
+                          name="Sales" />
+                        <outputColumn
+                          refId="Package\For Loop Container\Data Flow Task\Excel Source.Outputs[Excel Source Error Output].Columns[Quantity]"
+                          dataType="r8"
+                          lineageId="Package\For Loop Container\Data Flow Task\Excel Source.Outputs[Excel Source Error Output].Columns[Quantity]"
+                          name="Quantity" />
+                        <outputColumn
+                          refId="Package\For Loop Container\Data Flow Task\Excel Source.Outputs[Excel Source Error Output].Columns[Discount]"
+                          dataType="r8"
+                          lineageId="Package\For Loop Container\Data Flow Task\Excel Source.Outputs[Excel Source Error Output].Columns[Discount]"
+                          name="Discount" />
+                        <outputColumn
+                          refId="Package\For Loop Container\Data Flow Task\Excel Source.Outputs[Excel Source Error Output].Columns[Profit]"
+                          dataType="r8"
+                          lineageId="Package\For Loop Container\Data Flow Task\Excel Source.Outputs[Excel Source Error Output].Columns[Profit]"
+                          name="Profit" />
+                        <outputColumn
+                          refId="Package\For Loop Container\Data Flow Task\Excel Source.Outputs[Excel Source Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\For Loop Container\Data Flow Task\Excel Source.Outputs[Excel Source Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\For Loop Container\Data Flow Task\Excel Source.Outputs[Excel Source Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\For Loop Container\Data Flow Task\Excel Source.Outputs[Excel Source Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\For Loop Container\Data Flow Task\OLE DB Destination"
+                  componentClassID="Microsoft.OLEDBDestination"
+                  contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+                  description="OLE DB Destination"
+                  name="OLE DB Destination"
+                  usesDispositions="true"
+                  version="4">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset">[dbo].[Orders]</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">3</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepIdentity">false</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepNulls">false</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                      name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                      name="FastLoadMaxInsertCommitSize">2147483647</property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\For Loop Container\Data Flow Task\OLE DB Destination.Connections[OleDbConnection]"
+                      connectionManagerID="Package.ConnectionManagers[ASUS-TUF\SQLEXPRESS.superstore]"
+                      connectionManagerRefId="Package.ConnectionManagers[ASUS-TUF\SQLEXPRESS.superstore]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <inputs>
+                    <input
+                      refId="Package\For Loop Container\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input]"
+                      errorOrTruncationOperation="Insert"
+                      errorRowDisposition="FailComponent"
+                      hasSideEffects="true"
+                      name="OLE DB Destination Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\For Loop Container\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Copy of Order ID]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="255"
+                          cachedName="Copy of Order ID"
+                          externalMetadataColumnId="Package\For Loop Container\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[OrderID]"
+                          lineageId="Package\For Loop Container\Data Flow Task\Row Sampling.Outputs[Sampling Selected Output].Columns[Copy of Order ID]" />
+                        <inputColumn
+                          refId="Package\For Loop Container\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Copy of Product ID]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="255"
+                          cachedName="Copy of Product ID"
+                          externalMetadataColumnId="Package\For Loop Container\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ProductID]"
+                          lineageId="Package\For Loop Container\Data Flow Task\Row Sampling.Outputs[Sampling Selected Output].Columns[Copy of Product ID]" />
+                        <inputColumn
+                          refId="Package\For Loop Container\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Copy of Customer ID]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="255"
+                          cachedName="Copy of Customer ID"
+                          externalMetadataColumnId="Package\For Loop Container\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[CustomerID]"
+                          lineageId="Package\For Loop Container\Data Flow Task\Row Sampling.Outputs[Sampling Selected Output].Columns[Copy of Customer ID]" />
+                        <inputColumn
+                          refId="Package\For Loop Container\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Copy of Sales]"
+                          cachedDataType="r8"
+                          cachedName="Copy of Sales"
+                          externalMetadataColumnId="Package\For Loop Container\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Sales]"
+                          lineageId="Package\For Loop Container\Data Flow Task\Row Sampling.Outputs[Sampling Selected Output].Columns[Copy of Sales]" />
+                        <inputColumn
+                          refId="Package\For Loop Container\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Copy of Profit]"
+                          cachedDataType="r8"
+                          cachedName="Copy of Profit"
+                          externalMetadataColumnId="Package\For Loop Container\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Profit]"
+                          lineageId="Package\For Loop Container\Data Flow Task\Row Sampling.Outputs[Sampling Selected Output].Columns[Copy of Profit]" />
+                      </inputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\For Loop Container\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[OrderID]"
+                          codePage="1252"
+                          dataType="str"
+                          length="255"
+                          name="OrderID" />
+                        <externalMetadataColumn
+                          refId="Package\For Loop Container\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ProductID]"
+                          codePage="1252"
+                          dataType="str"
+                          length="255"
+                          name="ProductID" />
+                        <externalMetadataColumn
+                          refId="Package\For Loop Container\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[CustomerID]"
+                          codePage="1252"
+                          dataType="str"
+                          length="255"
+                          name="CustomerID" />
+                        <externalMetadataColumn
+                          refId="Package\For Loop Container\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Sales]"
+                          dataType="numeric"
+                          name="Sales"
+                          precision="10"
+                          scale="2" />
+                        <externalMetadataColumn
+                          refId="Package\For Loop Container\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Profit]"
+                          dataType="numeric"
+                          name="Profit"
+                          precision="10"
+                          scale="2" />
+                      </externalMetadataColumns>
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\For Loop Container\Data Flow Task\OLE DB Destination.Outputs[OLE DB Destination Error Output]"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="OLE DB Destination Error Output"
+                      synchronousInputId="Package\For Loop Container\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\For Loop Container\Data Flow Task\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\For Loop Container\Data Flow Task\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\For Loop Container\Data Flow Task\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\For Loop Container\Data Flow Task\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\For Loop Container\Data Flow Task\Row Sampling"
+                  componentClassID="Microsoft.RowSampling"
+                  contactInfo="Row Sampling;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+                  description="Randomly samples a specific number of rows from an input data flow. For example, use it randomly select products to feature on your Web site."
+                  name="Row Sampling">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the number of rows in the sample."
+                      expressionType="Notify"
+                      name="SamplingValue">10</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the seed for the random number generator."
+                      name="SamplingSeed">0</property>
+                  </properties>
+                  <inputs>
+                    <input
+                      refId="Package\For Loop Container\Data Flow Task\Row Sampling.Inputs[Row Sampling Input 1]"
+                      name="Row Sampling Input 1">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\For Loop Container\Data Flow Task\Row Sampling.Inputs[Row Sampling Input 1].Columns[Copy of Customer ID]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="255"
+                          cachedName="Copy of Customer ID"
+                          lineageId="Package\For Loop Container\Data Flow Task\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Customer ID]" />
+                        <inputColumn
+                          refId="Package\For Loop Container\Data Flow Task\Row Sampling.Inputs[Row Sampling Input 1].Columns[Copy of Sales]"
+                          cachedDataType="r8"
+                          cachedName="Copy of Sales"
+                          lineageId="Package\For Loop Container\Data Flow Task\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Sales]" />
+                        <inputColumn
+                          refId="Package\For Loop Container\Data Flow Task\Row Sampling.Inputs[Row Sampling Input 1].Columns[Copy of Profit]"
+                          cachedDataType="r8"
+                          cachedName="Copy of Profit"
+                          lineageId="Package\For Loop Container\Data Flow Task\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Profit]" />
+                        <inputColumn
+                          refId="Package\For Loop Container\Data Flow Task\Row Sampling.Inputs[Row Sampling Input 1].Columns[Copy of Product ID]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="255"
+                          cachedName="Copy of Product ID"
+                          lineageId="Package\For Loop Container\Data Flow Task\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Product ID]" />
+                        <inputColumn
+                          refId="Package\For Loop Container\Data Flow Task\Row Sampling.Inputs[Row Sampling Input 1].Columns[Copy of Order ID]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="255"
+                          cachedName="Copy of Order ID"
+                          lineageId="Package\For Loop Container\Data Flow Task\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Order ID]" />
+                      </inputColumns>
+                      <externalMetadataColumns />
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\For Loop Container\Data Flow Task\Row Sampling.Outputs[Sampling Selected Output]"
+                      name="Sampling Selected Output">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Output for rows in the sample"
+                          name="Selected">true</property>
+                      </properties>
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\For Loop Container\Data Flow Task\Row Sampling.Outputs[Sampling Selected Output].Columns[Copy of Customer ID]"
+                          codePage="1252"
+                          dataType="str"
+                          length="255"
+                          lineageId="Package\For Loop Container\Data Flow Task\Row Sampling.Outputs[Sampling Selected Output].Columns[Copy of Customer ID]"
+                          name="Copy of Customer ID">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Input column lineage ID"
+                              name="InputColumnLineageID">#{Package\For Loop Container\Data Flow Task\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Customer ID]}</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\For Loop Container\Data Flow Task\Row Sampling.Outputs[Sampling Selected Output].Columns[Copy of Sales]"
+                          dataType="r8"
+                          lineageId="Package\For Loop Container\Data Flow Task\Row Sampling.Outputs[Sampling Selected Output].Columns[Copy of Sales]"
+                          name="Copy of Sales">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Input column lineage ID"
+                              name="InputColumnLineageID">#{Package\For Loop Container\Data Flow Task\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Sales]}</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\For Loop Container\Data Flow Task\Row Sampling.Outputs[Sampling Selected Output].Columns[Copy of Profit]"
+                          dataType="r8"
+                          lineageId="Package\For Loop Container\Data Flow Task\Row Sampling.Outputs[Sampling Selected Output].Columns[Copy of Profit]"
+                          name="Copy of Profit">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Input column lineage ID"
+                              name="InputColumnLineageID">#{Package\For Loop Container\Data Flow Task\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Profit]}</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\For Loop Container\Data Flow Task\Row Sampling.Outputs[Sampling Selected Output].Columns[Copy of Product ID]"
+                          codePage="1252"
+                          dataType="str"
+                          length="255"
+                          lineageId="Package\For Loop Container\Data Flow Task\Row Sampling.Outputs[Sampling Selected Output].Columns[Copy of Product ID]"
+                          name="Copy of Product ID">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Input column lineage ID"
+                              name="InputColumnLineageID">#{Package\For Loop Container\Data Flow Task\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Product ID]}</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\For Loop Container\Data Flow Task\Row Sampling.Outputs[Sampling Selected Output].Columns[Copy of Order ID]"
+                          codePage="1252"
+                          dataType="str"
+                          length="255"
+                          lineageId="Package\For Loop Container\Data Flow Task\Row Sampling.Outputs[Sampling Selected Output].Columns[Copy of Order ID]"
+                          name="Copy of Order ID">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Input column lineage ID"
+                              name="InputColumnLineageID">#{Package\For Loop Container\Data Flow Task\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Order ID]}</property>
+                          </properties>
+                        </outputColumn>
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                    <output
+                      refId="Package\For Loop Container\Data Flow Task\Row Sampling.Outputs[Sampling Unselected Output]"
+                      name="Sampling Unselected Output">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Output for rows in the sample"
+                          name="Selected">false</property>
+                      </properties>
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\For Loop Container\Data Flow Task\Row Sampling.Outputs[Sampling Unselected Output].Columns[Copy of Customer ID]"
+                          codePage="1252"
+                          dataType="str"
+                          length="255"
+                          lineageId="Package\For Loop Container\Data Flow Task\Row Sampling.Outputs[Sampling Unselected Output].Columns[Copy of Customer ID]"
+                          name="Copy of Customer ID">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Input column lineage ID"
+                              name="InputColumnLineageID">#{Package\For Loop Container\Data Flow Task\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Customer ID]}</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\For Loop Container\Data Flow Task\Row Sampling.Outputs[Sampling Unselected Output].Columns[Copy of Sales]"
+                          dataType="r8"
+                          lineageId="Package\For Loop Container\Data Flow Task\Row Sampling.Outputs[Sampling Unselected Output].Columns[Copy of Sales]"
+                          name="Copy of Sales">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Input column lineage ID"
+                              name="InputColumnLineageID">#{Package\For Loop Container\Data Flow Task\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Sales]}</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\For Loop Container\Data Flow Task\Row Sampling.Outputs[Sampling Unselected Output].Columns[Copy of Profit]"
+                          dataType="r8"
+                          lineageId="Package\For Loop Container\Data Flow Task\Row Sampling.Outputs[Sampling Unselected Output].Columns[Copy of Profit]"
+                          name="Copy of Profit">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Input column lineage ID"
+                              name="InputColumnLineageID">#{Package\For Loop Container\Data Flow Task\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Profit]}</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\For Loop Container\Data Flow Task\Row Sampling.Outputs[Sampling Unselected Output].Columns[Copy of Product ID]"
+                          codePage="1252"
+                          dataType="str"
+                          length="255"
+                          lineageId="Package\For Loop Container\Data Flow Task\Row Sampling.Outputs[Sampling Unselected Output].Columns[Copy of Product ID]"
+                          name="Copy of Product ID">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Input column lineage ID"
+                              name="InputColumnLineageID">#{Package\For Loop Container\Data Flow Task\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Product ID]}</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\For Loop Container\Data Flow Task\Row Sampling.Outputs[Sampling Unselected Output].Columns[Copy of Order ID]"
+                          codePage="1252"
+                          dataType="str"
+                          length="255"
+                          lineageId="Package\For Loop Container\Data Flow Task\Row Sampling.Outputs[Sampling Unselected Output].Columns[Copy of Order ID]"
+                          name="Copy of Order ID">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Input column lineage ID"
+                              name="InputColumnLineageID">#{Package\For Loop Container\Data Flow Task\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Order ID]}</property>
+                          </properties>
+                        </outputColumn>
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+              </components>
+              <paths>
+                <path
+                  refId="Package\For Loop Container\Data Flow Task.Paths[Data Conversion Output]"
+                  endId="Package\For Loop Container\Data Flow Task\Row Sampling.Inputs[Row Sampling Input 1]"
+                  name="Data Conversion Output"
+                  startId="Package\For Loop Container\Data Flow Task\Data Conversion.Outputs[Data Conversion Output]" />
+                <path
+                  refId="Package\For Loop Container\Data Flow Task.Paths[Excel Source Output]"
+                  endId="Package\For Loop Container\Data Flow Task\Data Conversion.Inputs[Data Conversion Input]"
+                  name="Excel Source Output"
+                  startId="Package\For Loop Container\Data Flow Task\Excel Source.Outputs[Excel Source Output]" />
+                <path
+                  refId="Package\For Loop Container\Data Flow Task.Paths[Sampling Selected Output]"
+                  endId="Package\For Loop Container\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input]"
+                  name="Sampling Selected Output"
+                  startId="Package\For Loop Container\Data Flow Task\Row Sampling.Outputs[Sampling Selected Output]" />
+              </paths>
+            </pipeline>
+          </DTS:ObjectData>
+        </DTS:Executable>
+      </DTS:Executables>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint]"
+      DTS:CreationName=""
+      DTS:DTSID="{C4B43B90-7F6D-47F7-A95E-321A47C551F9}"
+      DTS:From="Package\Execute SQL Task"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint"
+      DTS:To="Package\For Loop Container" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="155,42"
+          Id="Package\For Loop Container\Data Flow Task"
+          TopLeft="39,46" />
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="230,143"
+          Size="230,186"
+          Id="Package\For Loop Container"
+          TopLeft="197,286" />
+        <NodeLayout
+          Size="170,42"
+          Id="Package\Execute SQL Task"
+          TopLeft="231,151" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="314,193">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,93"
+              Start="0,0"
+              End="0,85.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,85.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\For Loop Container\Data Flow Task">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="150,42"
+          Id="Package\For Loop Container\Data Flow Task\Row Sampling"
+          TopLeft="264,490" />
+        <NodeLayout
+          Size="177,42"
+          Id="Package\For Loop Container\Data Flow Task\OLE DB Destination"
+          TopLeft="236,615" />
+        <EdgeLayout
+          Id="Package\For Loop Container\Data Flow Task.Paths[Sampling Selected Output]"
+          TopLeft="339,532">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-14.5,83"
+              Start="0,0"
+              End="-14.5,75.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,37.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,37.5"
+                    Point2="0,41.5"
+                    Point3="-4,41.5" />
+                  <mssgle:LineSegment
+                    End="-10.5,41.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-10.5,41.5"
+                    Point2="-14.5,41.5"
+                    Point3="-14.5,45.5" />
+                  <mssgle:LineSegment
+                    End="-14.5,75.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-65.19205078125,46.5,115.8841015625,11.6630859375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="144,42"
+          Id="Package\For Loop Container\Data Flow Task\Excel Source"
+          TopLeft="271,218" />
+        <NodeLayout
+          Size="161,42"
+          Id="Package\For Loop Container\Data Flow Task\Data Conversion"
+          TopLeft="252,363" />
+        <EdgeLayout
+          Id="Package\For Loop Container\Data Flow Task.Paths[Excel Source Output]"
+          TopLeft="343,260">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-10.5,103"
+              Start="0,0"
+              End="-10.5,95.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,47.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,47.5"
+                    Point2="0,51.5"
+                    Point3="-4,51.5" />
+                  <mssgle:LineSegment
+                    End="-6.5,51.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-6.5,51.5"
+                    Point2="-10.5,51.5"
+                    Point3="-10.5,55.5" />
+                  <mssgle:LineSegment
+                    End="-10.5,95.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\For Loop Container\Data Flow Task.Paths[Data Conversion Output]"
+          TopLeft="335.75,405">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,85"
+              Start="0,0"
+              End="0,77.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,77.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\For Loop Container\Data Flow Task\OLE DB Destination">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\For Loop Container\Data Flow Task\Excel Source">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>
