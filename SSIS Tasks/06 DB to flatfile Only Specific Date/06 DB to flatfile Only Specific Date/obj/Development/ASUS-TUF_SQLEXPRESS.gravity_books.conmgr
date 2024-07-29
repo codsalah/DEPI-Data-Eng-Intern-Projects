@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<DTS:ConnectionManager xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:ObjectName="ASUS-TUF_SQLEXPRESS.gravity_books"
+  DTS:DTSID="{6BAAA198-F890-46B7-ABA2-A8BA378372DE}"
+  DTS:CreationName="OLEDB">
+  <DTS:ObjectData>
+    <DTS:ConnectionManager
+      DTS:ConnectRetryCount="1"
+      DTS:ConnectRetryInterval="5"
+      DTS:ConnectionString="Data Source=ASUS-TUF\SQLEXPRESS;Initial Catalog=gravity_books;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;Application Name=SSIS-06 DB to flatfile Only Specific Date-{6BAAA198-F890-46B7-ABA2-A8BA378372DE}ASUS-TUF\SQLEXPRESS.gravity_books;" />
+  </DTS:ObjectData>
+</DTS:ConnectionManager>

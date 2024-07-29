@@ -1,0 +1,2 @@
+book_id,title,isbn13,language_id,num_pages,publication_date,publisher_id
+11128,The Great Book,8987059752,2,250,2001-07-29,95

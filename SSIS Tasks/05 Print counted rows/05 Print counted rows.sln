@@ -1,0 +1,22 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.35026.282
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{C9674DCB-5085-4A16-B785-4C70DD1589BD}") = "05 Print counted rows", "05 Print counted rows\05 Print counted rows.dtproj", "{6C6275E4-5C32-4882-956D-80E117E82E35}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Development|Default = Development|Default
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{6C6275E4-5C32-4882-956D-80E117E82E35}.Development|Default.ActiveCfg = Development
+		{6C6275E4-5C32-4882-956D-80E117E82E35}.Development|Default.Build.0 = Development
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {83A8D1B7-68E9-45D1-B7CA-3AF1D47C1265}
+	EndGlobalSection
+EndGlobal
