@@ -1,0 +1,12 @@
+﻿<?xml version="1.0"?>
+<DTS:ConnectionManager xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:ObjectName="ASUS-TUF_SQLEXPRESS.CompanyDB"
+  DTS:DTSID="{F81F305C-5D49-4863-868C-474202B47FBA}"
+  DTS:CreationName="OLEDB">
+  <DTS:ObjectData>
+    <DTS:ConnectionManager
+      DTS:ConnectRetryCount="1"
+      DTS:ConnectRetryInterval="5"
+      DTS:ConnectionString="Data Source=ASUS-TUF\SQLEXPRESS;Initial Catalog=CompanyDB;Provider=SQLNCLI11.1;Integrated Security=SSPI;Application Name=SSIS-Read Rows from Files with If condition-{F81F305C-5D49-4863-868C-474202B47FBA}ASUS-TUF\SQLEXPRESS.CompanyDB;Auto Translate=False;" />
+  </DTS:ObjectData>
+</DTS:ConnectionManager>
