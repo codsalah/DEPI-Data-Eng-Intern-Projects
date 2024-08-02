@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<DTS:ConnectionManager xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:ObjectName="ASUS-TUF_SQLEXPRESS.CompanyDB"
+  DTS:DTSID="{72B2D0C2-6A27-4B4A-9918-CB16DA590120}"
+  DTS:CreationName="OLEDB">
+  <DTS:ObjectData>
+    <DTS:ConnectionManager
+      DTS:ConnectRetryCount="1"
+      DTS:ConnectRetryInterval="5"
+      DTS:ConnectionString="Data Source=ASUS-TUF\SQLEXPRESS;Initial Catalog=CompanyDB;Provider=SQLNCLI11.1;Integrated Security=SSPI;Application Name=SSIS-SQL Task-{72B2D0C2-6A27-4B4A-9918-CB16DA590120}ASUS-TUF\SQLEXPRESS.CompanyDB;Auto Translate=False;" />
+  </DTS:ObjectData>
+</DTS:ConnectionManager>
